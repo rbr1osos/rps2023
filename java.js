@@ -98,8 +98,8 @@ function playRound(playerSelection,computerSelection){
   
   console.log(player+ " " + computer)
   //Player Wins!
-  if (player>=5){
-   const container = document.querySelector('.content');
+  if (player>4){
+   const container = document.querySelector('.gameHistory');
    const result = document.createElement('div');
    result.classList.add('result');
    result.textContent = 'You Win! Player ' + player + " : Computer " + computer;
@@ -110,8 +110,8 @@ function playRound(playerSelection,computerSelection){
   }
 
   //Computer Wins!
-    if (computer>=5){
-        const container = document.querySelector('.content');
+    if (computer>4){
+        const container = document.querySelector('.gameHistory');
         const result = document.createElement('div');
         result.classList.add('result');
         result.textContent = 'You Lose! Player ' + player + " : Computer " + computer;
@@ -122,7 +122,7 @@ function playRound(playerSelection,computerSelection){
     
   }
   //If user selects another choice after Win -- resets
-  if ((player> 5) || (computer>5)){
+  if ((player> 4) || (computer>4)){
     player=0;
     computer=0;
     document.getElementById('player').innerText = player;

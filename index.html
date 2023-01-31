@@ -6,25 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel='stylesheet' href='styles.css'>
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"></head>
 <body>
     <div class ='title'>Rock, Paper, or Scissors?</div>
+<div class = 'content-container'>
+<div class='selection'>
+    <div class='rock'>
+        <button id ='rockButton'><img src='../images/rock.png'></button>
+        <div>Rock</div>
+    </div>
 
-    <button id ='rockButton'>Rock</button>
-   <button id ='paperButton'>Paper</button>
-   <button id ='scissorsButton'>Scissors</button>
-  
+    <div class='paper'>
+   <button id ='paperButton'><img src='../images/paper.png'></button>
+   <div>Paper</div>
+
+   </div>
+
+    <div class='scissors'>
+   <button id ='scissorsButton'><img src='../images/scissors.png'></button>
+   <div>Scissors</div>
+
+   </div>
+</div>
+
+<div class='info-container'>
   <div class ='content'>
-    <h1 class='title-result'>Results</h1>
+    <div class='title-result'>Results</div>
     <div class='scores'>
       <div id='player'>0</div>
       <div>-</div>
       <div id='computer'>0</div>
     </div>
     <button id='playAgain'>Reset</button>
-
-    <div class='history'>Game History</div>
-    
+</div>
+    <div class='gameHistory'>
+        <div class='history'>Game History</div>
+    </div>
+</div>
     <script src='java.js'></script>
 
 </body>

@@ -1,12 +1,93 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: #24272E;
+}
+.content{
+    color:white;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.title-result{
+    font-family: 'Roboto', sans-serif;
+    font-size:64px;
+}
+
+.info-container{
+    display:flex;
+    color:white;
+    gap:150px;
+}
+.title{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:24px;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight:700;
+    font-size: 56px;
+}
+.rock,.paper,.scissors{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:16px;
+    font-size: 24px;
+    font-weight: 800;
+    color:white;
+}
+.selection{
+    display:flex;
+    align-items: center;
+    margin:32px;
+    gap:72px;
+    
+}
+
+.content-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:56px;
+    background-color:#24272E;
+}
 .scores{
     display:flex;
+    font-size:64px;
  
   }
   
-  .title{
-    font-size: 50px;
-  }
+.gameHistory{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap:20px;
+}
 
   .history{
       font-size:50px;
+      font-weight: 900;
   }
+
+  img{
+      width:150px;
+      height:150px;
+  }
+  #rockButton,#paperButton,#scissorsButton{
+      background-color: white;
+      padding:56px;
+      border-radius: 50%;
+      border:none;
+  }
+
+  /* What i want to accomplish with design
+  - choose color palette
+  - EVERYTHING to be centered 
+  - Each choice selection will have a picture/drawing of a hand
+  -game history in its own BOX  at the bottom of the screen
+  - text to be set to 'poppins'
+  - play again/reset button to be BIG and DESIGNED
