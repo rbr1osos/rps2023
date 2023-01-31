@@ -1,5 +1,23 @@
-
+/*
+- Create 3 buttons **
+- Buttons call playround function w/ correct selection
+- Add event listeners to buttons **
+- 
 */
+
+
+//DOM Elements
+document.getElementById('rockButton').addEventListener('click',function() {
+    playRound('rock',);
+  });
+  document.getElementById('paperButton').addEventListener('click',function() {
+    playRound('paper');
+  });
+  document.getElementById('scissorsButton').addEventListener('click',function() {
+    playRound('scissors');
+  });
+  
+//variables
 let player = 0;
 let computer = 0;
 
@@ -21,7 +39,7 @@ else{
 function playRound(playerSelection,computerSelection){
  computerSelection=getComputerChoice();
 
-  //Rock
+//Rock
         if (playerSelection==='rock' && computerSelection=== 'paper'){
             console.log('You Lose! Paper beats Rock')
           computer++;
@@ -37,7 +55,7 @@ function playRound(playerSelection,computerSelection){
             console.log('Tie! You both picked Rock!')
         }
 
-        //Paper
+//Paper
         if (playerSelection==='paper' && computerSelection=== 'paper'){
             console.log('Tie! You both picked Paper!')
         }
@@ -54,7 +72,7 @@ function playRound(playerSelection,computerSelection){
             document.getElementById('player').innerText = player;
         }
 
-        //Scissors
+//Scissors
         if (playerSelection==='scissors' && computerSelection=== 'scissors'){
             console.log('Tie! You both picked Scissors!')
         }
@@ -75,32 +93,39 @@ function playRound(playerSelection,computerSelection){
     computer=0;
     document.getElementById('player').innerText = player;
     document.getElementById('computer').innerText = computer;
-        document.getElementById('playAgain').innerText = 'Reset';
+
   }
   
+  console.log(player+ " " + computer)
   //Player Wins!
   if (player>=5){
+   const container = document.querySelector('.content');
+   const result = document.createElement('div');
+   result.classList.add('result');
+   result.textContent = 'You Win! Player ' + player + " : Computer " + computer;
+   container.appendChild(result);
+
     document.getElementById('playAgain').innerText = 'Play Again?';
     document.getElementById('playAgain').addEventListener('click',resetScore);  
   }
 
   //Computer Wins!
     if (computer>=5){
+        const container = document.querySelector('.content');
+        const result = document.createElement('div');
+        result.classList.add('result');
+        result.textContent = 'You Lose! Player ' + player + " : Computer " + computer;
+        container.appendChild(result);
+
     document.getElementById('playAgain').innerText = 'Play Again?';
     document.getElementById('playAgain').addEventListener('click',resetScore);
-      
     
   }
+  //If user selects another choice after Win -- resets
+  if ((player> 5) || (computer>5)){
+    player=0;
+    computer=0;
+    document.getElementById('player').innerText = player;
+    document.getElementById('computer').innerText = computer;
+  }
 }
-
-//DOM Elements
-document.getElementById('rockButton').addEventListener('click',function() {
-  playRound('rock');
-});
-document.getElementById('paperButton').addEventListener('click',function() {
-  playRound('paper');
-});
-document.getElementById('scissorsButton').addEventListener('click',function() {
-  playRound('scissors');
-});
-

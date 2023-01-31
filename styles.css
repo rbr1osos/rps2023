@@ -1,8 +1,12 @@
 .scores{
     display:flex;
-   content-align:center;
+ 
   }
   
   .title{
     font-size: 50px;
+  }
+
+  .history{
+      font-size:50px;
   }
