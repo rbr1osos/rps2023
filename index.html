@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
     <link rel='stylesheet' href='styles.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"></head>
 <body>
-    <div class ='title'>Rock, Paper, or Scissors?</div>
+    <header>Rock, Paper, or Scissors?</header>
+
+    <div class='score-board'>
+        <div id='player-label' class='badge'>user</div>
+        <div id='computer-label' class='badge'>comp</div>
+        <span id='user-score'>0</span>:<span id='computer-score'>0</span>
+    </div>
+
+<div class='result'>
+    <p>Paper covers rock. You Win!</p>
+</div>
+
+<div class='choices'>
+    <div class='choice' id='r'>
+        <img src='../images/rock.png'>
+    </div>
+    <div class='choice' id='p'>
+        <img src='../images/paper.png'>
+    </div>
+    <div class='choice' id='s'>
+        <img src='../images/scissors.png'>
+    </div>
+</div>
+
+
 <div class = 'content-container'>
 <div class='selection'>
     <div class='rock'>
@@ -33,16 +57,11 @@
    </div>
 </div>
 
+
+
 <div class='info-container'>
-  <div class ='content'>
-    <div class='title-result'>Results</div>
-    <div class='scores'>
-      <div id='player'>0</div>
-      <div>-</div>
-      <div id='computer'>0</div>
-    </div>
     <button id='playAgain'>Reset</button>
-</div>
+
     <div class='gameHistory'>
         <div class='history'>Game History</div>
     </div>
