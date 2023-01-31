@@ -1,18 +1,128 @@
 //Variables
-const userScore = 0;
-const computerScore = 0;
+let userScore = 0;
+let computerScore = 0;
 const userScore_span = document.getElementById("user-score");
-const computerScore_span = document.getElementById("comnputer-score");
+const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector('.score-board');
-const result_div = document.querySelector('.result');
-const rock_div = document.getElementById('r');
-const paper_div = document.getElementById('p');
-const scissors_div = document.getElementById('s');
+const result_div = document.querySelector('p');
+const rock_div = document.getElementById('Rock');
+const paper_div = document.getElementById('Paper');
+const scissors_div = document.getElementById('Scissors');
+const reset_div = document.getElementById('reset');
+
+function getComputerChoice(){
+    const choices= ['Rock','Paper','Scissors'];
+    const randomNumber = Math.floor(Math.random() * 3);
+    return choices[randomNumber];
+}
+
+//RESET BUTTON APPEARS
+function reset(){
+userScore=0;
+computerScore=0;
+const button_container = reset_div
+const resetButton = document.createElement('button');
+resetButton.classList.add('button'); //.button
+resetButton.textContent='Play Again?'
+button_container.appendChild(resetButton);
+
+document.querySelector('.button').addEventListener('click',buttonReset);
+;
+
+}
+
+//REMOVE BUTTON
+function buttonReset(){
+    userScore=0;
+    computerScore=0;
+    userScore_span.innerText=userScore;
+    computerScore_span.innerText = computerScore;
+    document.querySelector('.button').remove();
+    document.querySelector('.congrats').remove();
+    
+}
+
+function win(userChoice,computerChoice){
+const userChoice_div = document.getElementById(userChoice);
+userScore++;
+userScore_span.innerText=userScore;
+computerScore_span.innerText = computerScore;
+result_div.innerText = `${userChoice} beats ${computerChoice}. You win!`;
+userChoice_div.classList.add('green-glow');
+setTimeout(function() {document.getElementById(userChoice).classList.remove('green-glow')},400);
+
+if (userScore>4){
+    const button_container = reset_div
+    const resetButton = document.createElement('div');
+    resetButton.classList.add('congrats'); //.button
+    resetButton.textContent='YOU WIN!!!'
+    button_container.appendChild(resetButton); 
+    reset();
+    }
+
+
+}
+function lose(userChoice,computerChoice){
+const userChoice_div = document.getElementById(userChoice);
+computerScore++;
+computerScore_span.innerText=computerScore;
+userScore_span.innerText=userScore;
+result_div.innerText = `${computerChoice} beats ${userChoice}. You lose!`;
+userChoice_div.classList.add('red-glow');
+setTimeout(function() {document.getElementById(userChoice).classList.remove('red-glow')},400);
+if (computerScore>4){
+    const button_container = reset_div
+    const resetButton = document.createElement('div');
+    resetButton.classList.add('congrats'); //.button
+    resetButton.textContent='YOU LOSE!!!'
+    button_container.appendChild(resetButton); 
+    reset();
+    }
+}
+
+function draw(userChoice,computerChoice){
+    const userChoice_div = document.getElementById(userChoice);
+    result_div.innerText = `Draw!! You both selected ${userChoice}!`;
+    userChoice_div.classList.add('gray-glow');
+    setTimeout(function() {document.getElementById(userChoice).classList.remove('gray-glow')},400);
+}
+
+
+function game(userChoice){
+    const computerChoice = getComputerChoice();
+    switch (userChoice +computerChoice){
+        case 'RockScissors':
+        case 'PaperRock':
+        case 'ScissorsPaper':
+            win(userChoice, computerChoice);
+            break;
+        case 'RockPaper':
+        case 'PaperScissors':
+        case 'ScissorsRock':
+            lose(userChoice, computerChoice);
+            break;
+        case 'RockRock':
+        case 'PaperPaper':
+        case 'ScissorsScissors':
+            draw(userChoice, computerChoice);
+            break;
+    }
+}
 
 
 rock_div.addEventListener('click', function(){
-    console.log('hey you clicked on rock')
+    game('Rock');
 })
+paper_div.addEventListener('click', function(){
+    game('Paper');
+
+})
+scissors_div.addEventListener('click', function(){
+    game('Scissors');
+
+})
+
+
 
 /*
 //DOM Elements
